@@ -95,9 +95,12 @@ public class PlayPage extends AppCompatActivity {
         if(checkWinner()){
             winnerFound = true;
             TextView winnerText = (TextView) findViewById(R.id.winnerText);
-            winnerText.setText("Player " + Integer.toString(playerTurn+1) + " Wins!");
+            if(playerTurn == 0) winnerText.setText(playerOneName + " Wins!");
+            else winnerText.setText(playerTwoName + " Wins!");
+
             MediaPlayer win = MediaPlayer.create(this , R.raw.win);
             win.start();
+            
             textPlayer1.setAlpha(0);
             textPlayer2.setAlpha(0);
             imagePlayer1.setAlpha(0f);
